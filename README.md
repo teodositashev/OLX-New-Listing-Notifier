@@ -2,7 +2,19 @@
 
 The OLX-New-Listing-Notifier script is designed to alert you about new OLX listings at regular intervals via email. To get started, you'll need a Gmail account to send the notifications. Below is a quick setup guide.
 
-## 1. Install Dependencies
+## 1. Prerequisites
+
+Make sure you have **Python 3** installed on your system. You can download it from the official [Python website](https://www.python.org/downloads/).
+
+## 2. Clone the Repository
+
+Open your command prompt or terminal and run the following command to clone the repository:
+
+```bash
+git clone https://github.com/teodositashev/OLX-New-Listing-Notifier.git
+```
+
+## 3. Install Dependencies
 
 Open your command prompt and run the following commands to install the necessary Python libraries:
 
@@ -11,7 +23,7 @@ pip install beautifulsoup4
 pip install pyyaml
 ```
 
-## 2. Configure `config.yaml`
+## 4. Configure `config.yaml`
 
 In the `config.yaml` file, you will need to specify the following:
 
@@ -20,7 +32,7 @@ In the `config.yaml` file, you will need to specify the following:
 - **sender_email**: The Gmail account that will send the notifications.
 - **receiver_email**: The email account (which can be any email provider) where you want to receive notifications.
 
-## 3. Setting Up Your Gmail
+## 5. Setting Up Your Gmail
 
 To securely store your email password and avoid potential security risks, follow these steps:
 
