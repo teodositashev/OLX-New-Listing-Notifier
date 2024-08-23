@@ -1,4 +1,4 @@
-link: olx_link
-minutes: amount
-sender_email: sender_email@gmail.com
-receiver_email: receiver_email@anything.org
+link:
+time_interval:
+sender_email:
+receiver_email:
