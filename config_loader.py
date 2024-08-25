@@ -32,7 +32,7 @@ def validate_config(config: Dict[str, Any]) -> None:
     if (not is_valid_email(config['receiver_email'], EMAIL_REGEX)):
         raise ValueError("Receiver email must be a valid email address.")
     
-    if (not config['link'].startswith('https://www.olx.bg/ads')):
+    if (not config['link'].startswith('https://www.olx.bg')):
         raise ValueError("Provided link must be a valid OLX search query URL.")
     
     config['link'] = ensure_sorted_by_newest(config['link'])

@@ -1,17 +1,17 @@
 import os
 import time
+from typing import List, Tuple, Union
 
 from config_loader import load_config
 from email_sender import create_email, send_email
 from scraper import scrape_info
-from typing import List, Tuple, Union
 
-def process_lists(lst1: List[Tuple[str, str, str]], lst2: List[Tuple[str, str, str]]) -> Union[List[Tuple[str, str, str]], None]:
-    """Keep track of what orders have been already shown."""
+def process_lists(new_ads: List[Tuple[str, str, str]], old_ads: List[Tuple[str, str, str]]) -> List[Tuple[str, str, str]]:
+    """Filter new ads that are not in the list of old ads."""
 
-    old_orders_links = {tup[2] for tup in lst2}
+    old_orders_links = {tup[2] for tup in old_ads}
 
-    filtered_orders = [tup for tup in lst1 if tup[2] not in old_orders_links]
+    filtered_orders = [tup for tup in new_ads if tup[2] not in old_orders_links]
     return filtered_orders
 
 def create_subject(time: int) -> str:
@@ -24,7 +24,7 @@ def create_subject(time: int) -> str:
 
     return f"Check out the new listings uploaded on OLX {suffix}"
     
-def main():
+def main() -> None:
     config = load_config()
     
     link_to_scrape = config['link']

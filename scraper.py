@@ -1,7 +1,9 @@
 import requests
-from bs4 import BeautifulSoup
 
-def scrape_info(url):
+from bs4 import BeautifulSoup
+from typing import List, Tuple, Optional
+
+def scrape_info(url: str) -> List[Tuple[str, str, str]]:
     """Scrape information from a specified OLX URL."""
 
     response = requests.get(url)
@@ -26,8 +28,6 @@ def scrape_info(url):
         link_tag = ad_card.find("a", class_="css-z3gu2d")
         if link_tag and 'href' in link_tag.attrs:
             link = "https://www.olx.bg" + link_tag['href']
-
-        #scrape images and add them in the scrape_info
         
         scraped_info.append((title, price, link))
         

@@ -1,16 +1,17 @@
 import ssl
 import smtplib
+
 from email.message import EmailMessage
+from typing import List, Tuple, Optional
 
 PORT_VALUE = 465
 
-def create_email(sender_email, receiver_email, subject, ads):
+def create_email(sender_email: str, receiver_email: str, subject: str, ads: List[Tuple[str, str, str]]) -> EmailMessage:
     """Prepares an Email contents that will be sent."""
 
     body = "<html><body>"
     
     for ad in ads:
-        #img_html = f'<img src="{ad["image_src"]}" style="width: 100px;" />' if ad['image_src'] else ""
         body += f"""
         <div style="margin-bottom: 20px;">
             <h4>{ad[0]}</h4>
@@ -30,7 +31,9 @@ def create_email(sender_email, receiver_email, subject, ads):
     
     return email
 
-def send_email(email, sender_email, password):
+def send_email(email: EmailMessage, sender_email: str, password: str) -> None:
+    """Send an email using SMTP over SSL."""
+
     context = ssl.create_default_context()
     with smtplib.SMTP_SSL('smtp.gmail.com', PORT_VALUE, context=context) as smtp:
         smtp.login(sender_email, password)
