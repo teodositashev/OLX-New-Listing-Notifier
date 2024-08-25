@@ -49,7 +49,7 @@ To securely store your email password and avoid potential security risks, follow
    - Create a system environment variable named `OLX_NOTIFIER_PASSWORD` with the value set to the App Password you copied.
    - Restart your IDE to apply the changes.
 
-## Future Imrpovements
+## Future Improvements
 
 - **Add Unit Tests**: Implement comprehensive unit tests to ensure code reliability and functionality.
 - **Add Image Attachment to Emails**: Enhance email functionality to support image attachments.
