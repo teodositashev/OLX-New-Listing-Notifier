@@ -21,6 +21,7 @@ Open your command prompt and run the following commands to install the necessary
 ```bash
 pip install beautifulsoup4
 pip install pyyaml
+pip install requests
 ```
 
 ## 4. Configure `config.yaml`
