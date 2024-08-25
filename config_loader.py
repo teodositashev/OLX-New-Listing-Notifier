@@ -2,7 +2,8 @@ import os
 import yaml
 
 def load_config(filepath='config.yaml'):
-    """Load configuration from a YAML file."""
+    """Load configuration from the YAML file."""
+    
     if not os.path.exists(filepath):
         raise FileNotFoundError("The configuration file does not exist.")
     
