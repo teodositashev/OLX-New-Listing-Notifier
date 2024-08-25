@@ -18,11 +18,16 @@ def scrape_info(url):
         title = title_tag.get_text(strip=True)
 
         price_tag = ad_card.find("p", class_="css-13afqrm")
-        price = price_tag.get_text(strip=True)
+        if price_tag:
+            price = price_tag.get_text(strip=True)
+        else:
+            price = "Price not available"
         
         link_tag = ad_card.find("a", class_="css-z3gu2d")
         if link_tag and 'href' in link_tag.attrs:
             link = "https://www.olx.bg" + link_tag['href']
+
+        #scrape images and add them in the scrape_info
         
         scraped_info.append((title, price, link))
         
